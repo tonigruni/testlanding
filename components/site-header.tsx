@@ -1,18 +1,15 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import { Menu } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
-  const { resolvedTheme } = useTheme();
-  const headerRef = React.useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
-  const isIndexPage = pathname === "/";
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 

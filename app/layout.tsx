@@ -1,14 +1,13 @@
+import "@/styles/globals.css";
+
 import { Metadata, Viewport } from "next";
+import { cn } from "@/lib/utils";
 
 import { CSPostHogProvider } from "@/app/providers";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/providers";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-
-import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -62,7 +61,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: `${siteConfig.url}/site.webmanifest}`,
 };
 
 export const viewport: Viewport = {

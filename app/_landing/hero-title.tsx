@@ -1,29 +1,23 @@
-import { Anaheim } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 
-import WaveReveal from "@/animata/text/wave-reveal";
-import ComponentLinkWrapper from "@/components/component-link-wrapper";
 import { cn } from "@/lib/utils";
 
-const titleFont = Anaheim({
+const titleFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["800"],
 });
 
-export default function HeroTitle() {
+export default function HeroTitle({ className }: { className?: string }) {
   return (
-    <div className="group relative z-10 inline-block">
-      <ComponentLinkWrapper link="/docs/text/wave-reveal">
-        <WaveReveal
-          text="animata"
-          className={cn(
-            "select-none px-0 text-7xl uppercase text-blue-700 transition-opacity delay-1000 dark:text-blue-500 md:px-0 md:text-8xl",
-            titleFont.className,
-          )}
-          delay={0}
-          direction="up"
-          duration="300ms"
-        />
-      </ComponentLinkWrapper>
+    <div className={cn("group relative z-10 inline-block", className)}>
+      <h1
+        className={cn(
+          "select-none px-0 text-center text-6xl font-extrabold text-stone-800 transition-opacity delay-1000 dark:text-gray-100 md:px-0 md:text-7xl",
+          titleFont.className,
+        )}
+      >
+        AI Powered Data <br /><span className="text-orange-600">Platform</span>
+      </h1>
     </div>
   );
 }

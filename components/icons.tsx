@@ -1,4 +1,4 @@
-import { Combine, RectangleHorizontal, TableCellsSplit } from "lucide-react";
+import { Combine, RectangleHorizontal, TableCellsSplit, LayoutDashboard, ChevronRight } from "lucide-react";
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -62,6 +62,8 @@ export const Icons = {
   bento: (props: IconProps) => <TableCellsSplit {...props} />,
   button: (props: IconProps) => <RectangleHorizontal {...props} />,
   widget: (props: IconProps) => <Combine {...props} />,
+  dashboard: (props: IconProps) => <LayoutDashboard {...props} />,
+  chevronRight: (props: IconProps) => <ChevronRight {...props} />,
   reactJS: (props: IconProps) => (
     <svg
       width="100%"
