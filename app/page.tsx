@@ -51,7 +51,7 @@ function LazySection({
 
 export default function IndexPage() {
   return (
-    <div className="relative overflow-x-hidden overflow-y-visible bg-background">
+    <div className="relative overflow-x-hidden overflow-y-visible bg-transparent">
       <Hero />
 
       <SectionOne />
