@@ -1,8 +1,6 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
 import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -37,7 +35,7 @@ export function SiteHeader() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300 ease-in-out",
         {
-          "pt-4 px-4": isScrolled,
+          "pt-4": isScrolled,
           "pt-0 px-0": !isScrolled,
         }
       )}
@@ -46,12 +44,12 @@ export function SiteHeader() {
         className={cn(
           "transition-all duration-300 ease-in-out",
           {
-            "w-4/5 mx-auto rounded-2xl bg-background": isScrolled,
+            "w-4/5 mx-auto rounded-2xl bg-background shadow-md": isScrolled,
             "w-full mx-auto bg-transparent": !isScrolled,
           }
         )}
       >
-        <div className="flex h-16 items-center justify-between px-4 md:px-6 max-w-6xl mx-auto">
+        <div className="flex h-16 items-center justify-between w-full px-[5%]">
           <Link href="/" className="flex items-center space-x-2">
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">P</span>
@@ -81,9 +79,9 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Log in
-            </Link>
+            <Button asChild variant="outline">
+              <Link href="/login">Log in</Link>
+            </Button>
             <Button asChild>
               <Link href="/signup">Sign up</Link>
             </Button>

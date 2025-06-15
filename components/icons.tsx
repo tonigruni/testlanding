@@ -1,4 +1,4 @@
-import { Combine, RectangleHorizontal, TableCellsSplit, LayoutDashboard, ChevronRight } from "lucide-react";
+import { ChevronRight, Combine, LayoutDashboard, RectangleHorizontal, TableCellsSplit } from "lucide-react";
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 

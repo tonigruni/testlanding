@@ -6,6 +6,7 @@ import { useInView } from "framer-motion";
 import SectionOne from "@/app/_landing/section-one";
 import { cn } from "@/lib/utils";
 
+import FreeTrialSection from "./_landing/free-trial-section";
 import Hero from "./_landing/hero";
 
 const SkeletonSection = React.lazy(() => import("./_landing/skeleton-section"));
@@ -53,6 +54,7 @@ export default function IndexPage() {
   return (
     <div className="relative overflow-x-hidden overflow-y-visible bg-transparent">
       <Hero />
+      <FreeTrialSection />
 
       <SectionOne />
 

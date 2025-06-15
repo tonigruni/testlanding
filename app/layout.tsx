@@ -1,13 +1,13 @@
-import "@/styles/globals.css";
-
 import { Metadata, Viewport } from "next";
-import { cn } from "@/lib/utils";
 
 import { CSPostHogProvider } from "@/app/providers";
+import { ThemeProvider } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { ThemeProvider } from "@/components/providers";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: {

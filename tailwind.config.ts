@@ -13,6 +13,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        gilroy: ["Gilroy", "sans-serif"],
+      },
       backgroundImage: {
         striped:
           "repeating-linear-gradient(45deg, #3B3A3D 0px, #3B3A3D 5px, transparent 5px, transparent 20px)",
@@ -203,6 +206,14 @@ const config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-40px)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-right": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         fill: "fill 1s forwards",
@@ -220,6 +231,8 @@ const config = {
         trail: "trail var(--duration) linear infinite",
         led: "led 100ms ease-in-out",
         float: "float 3s ease-in-out infinite",
+        marquee: "marquee 25s linear infinite",
+        "marquee-right": "marquee-right 25s linear infinite",
       },
       transitionTimingFunction: {
         slow: "cubic-bezier(.405, 0, .025, 1)",
