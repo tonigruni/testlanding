@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"next dev\" \"yarn storybook\"",
-    "build": "yarn storybook:build && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "npx eslint .",
     "storybook": "storybook dev -p 6006 --no-open",
@@ -119,7 +119,7 @@
     "typescript": "^5",
     "wrangler": "^3.79.0"
   },
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@1.22.19",
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0",

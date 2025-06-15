@@ -79,9 +79,8 @@ export default function IndexPage() {
         </div>
       </div>
       <FreeTrialSection />
-      <FreeTrialDark />
-
       <LazySection component={Testimonials} className="container mx-auto min-h-96" />
+      <FreeTrialDark />
       <SiteFooter />
     </div>
   );
