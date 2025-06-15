@@ -14,15 +14,15 @@ export default function Hero() {
   const color = resolvedTheme === "dark" ? "#ffffff12" : "#444cf710";
   return (
     <div
-      className="relative overflow-hidden h-[calc(67vh+400px)]"
+      className="relative overflow-hidden h-[calc(67vh+400px)] bg-white"
       style={{
         backgroundImage: `radial-gradient(${color} 1px, transparent 1px)`,
         backgroundSize: "calc(10px) calc(10px)",
       }}
     >
-      <div className="container relative overflow-hidden py-16 md:py-32 md:px-[10%]">
-        <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8 md:flex-row">
-          <div className="flex flex-col items-center justify-center gap-2">
+      <div className="relative overflow-hidden py-16 md:py-32 w-full">
+        <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8">
+          <div className="flex flex-col items-center justify-center gap-2 w-full">
             <IndexIndicator />
             <HeroTitle className="mt-9" />
 
@@ -44,12 +44,13 @@ export default function Hero() {
                   Talk to sales
                 </Link>
               </div>
-              <div className="relative w-full h-[67vh] overflow-hidden mx-auto">
+              <div className="relative w-[80vw] h-auto mx-auto">
                 <img
                   src="/images/hero-image.png"
                   alt="Hero Image"
-                  className="mt-8 rounded-2xl border shadow-[0_-4px_12px_-1px_rgba(0,0,0,0.1)] w-full"
+                  className="mt-8 rounded-2xl border shadow-[0_-4px_12px_-1px_rgba(0,0,0,0.1)] w-full h-auto"
                 />
+                <div className="absolute bottom-0 left-0 right-0 h-[20%] bg-gradient-to-t from-white to-transparent rounded-b-2xl" />
               </div>
             </div>
           </div>
