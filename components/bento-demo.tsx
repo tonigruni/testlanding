@@ -1,69 +1,130 @@
-"use client"
+import { BellIcon, Share2Icon, ShieldIcon } from "lucide-react";
 
-import { BellIcon, Share2Icon } from "lucide-react"
+import AnimatedBeamMultipleOutputDemo from "@/components/animated-beam-multiple-outputs";
+import AnimatedListDemo from "@/components/animated-list-demo";
+import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { Marquee } from "@/components/magicui/marquee";
+import RiskAssessmentDemo from "@/components/risk-assessment-demo";
+import { cn } from "@/lib/utils";
+import { FileTextIcon } from "@radix-ui/react-icons";
 
-import { BentoCard, BentoGrid } from "@/components/bento-grid-new"
-import { Marquee } from "@/components/magicui/marquee"
-import { Calendar } from "@/components/ui/calendar"
-import { cn } from "@/lib/utils"
-import AnimatedBeamMultipleOutputDemo from "@/registry/example/animated-beam-multiple-outputs"
-import AnimatedListDemo from "@/registry/example/animated-list-demo"
-import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons"
-
-const files = [
+const startups = [
   {
-    name: "bitcoin.pdf",
-    body: "Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.",
+    name: "Pynn",
+    stage: "Pre-Seed Stage - MVP",
+    website: "www.pynnai.com",
+    location: "Palma, ES",
+    vertical: "VC-Tech",
+    segment: "SaaS",
   },
   {
-    name: "finances.xlsx",
-    body: "A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.",
+    name: "FlowSync",
+    stage: "Seed Stage - Series A",
+    website: "www.flowsync.io",
+    location: "Berlin, DE",
+    vertical: "FinTech",
+    segment: "B2B",
   },
   {
-    name: "logo.svg",
-    body: "Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.",
+    name: "EcoTrack",
+    stage: "Pre-Seed Stage - Prototype",
+    website: "www.ecotrack.green",
+    location: "Amsterdam, NL",
+    vertical: "CleanTech",
+    segment: "IoT",
   },
   {
-    name: "keys.gpg",
-    body: "GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.",
+    name: "MindBridge",
+    stage: "Seed Stage - MVP",
+    website: "www.mindbridge.ai",
+    location: "London, UK",
+    vertical: "HealthTech",
+    segment: "AI/ML",
   },
   {
-    name: "seed.txt",
-    body: "A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.",
+    name: "CraftLab",
+    stage: "Pre-Seed Stage - Beta",
+    website: "www.craftlab.studio",
+    location: "Barcelona, ES",
+    vertical: "CreatorTech",
+    segment: "Marketplace",
   },
-]
+  {
+    name: "DataVault",
+    stage: "Seed Stage - Growth",
+    website: "www.datavault.secure",
+    location: "Zurich, CH",
+    vertical: "CyberSec",
+    segment: "Enterprise",
+  },
+];
 
 const features = [
   {
     Icon: FileTextIcon,
-    name: "Save your files",
-    description: "We automatically save your files as you type.",
+    name: "Track your startups",
+    description: "Screen and assess all your dealflow",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: (
       <Marquee
         pauseOnHover
-        className="absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+        className="absolute top-10 [--duration:25s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)]"
       >
-        {files.map((f, idx) => (
+        {startups.map((startup, idx) => (
           <figure
             key={idx}
             className={cn(
-              "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-              "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
+              "relative w-72 cursor-pointer overflow-hidden rounded-xl border p-6",
+              "border-gray-950/[.1] bg-white hover:bg-gray-50",
+              "dark:border-gray-50/[.1] dark:bg-gray-900 dark:hover:bg-gray-800",
+              "transform-gpu transition-all duration-300 ease-out hover:scale-105",
+              "shadow-lg hover:shadow-xl",
             )}
           >
-            <div className="flex flex-row items-center gap-2">
-              <div className="flex flex-col">
-                <figcaption className="text-sm font-medium dark:text-white ">
-                  {f.name}
-                </figcaption>
+            <div className="space-y-4">
+              <h3 className="mb-4 text-center text-lg font-bold text-gray-900 dark:text-white">
+                {startup.name}
+              </h3>
+
+              <div className="space-y-3">
+                <div className="flex items-start justify-between">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Stage:</span>
+                  <span className="max-w-[180px] text-right text-sm font-medium text-gray-900 dark:text-white">
+                    {startup.stage}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Website:</span>
+                  <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                    {startup.website}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Location:</span>
+                  <span className="text-sm font-medium text-gray-900 dark:text-white">
+                    {startup.location}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Vertical:</span>
+                  <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-200">
+                    {startup.vertical}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Segment:</span>
+                  <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-200">
+                    {startup.segment}
+                  </span>
+                </div>
               </div>
             </div>
-            <blockquote className="mt-2 text-xs">{f.body}</blockquote>
           </figure>
         ))}
       </Marquee>
@@ -71,8 +132,8 @@ const features = [
   },
   {
     Icon: BellIcon,
-    name: "Notifications",
-    description: "Get notified when something happens.",
+    name: "Match instantly",
+    description: "Your thesis shows the matching score",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -82,8 +143,8 @@ const features = [
   },
   {
     Icon: Share2Icon,
-    name: "Integrations",
-    description: "Supports 100+ integrations and counting.",
+    name: "LLM integrations",
+    description: "Our AI connects to the leading AI models",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -92,28 +153,24 @@ const features = [
     ),
   },
   {
-    Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    Icon: ShieldIcon,
+    name: "Risk assessment",
+    description: "Get a professional in-depth startup evaluation",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
     background: (
-      <Calendar
-        mode="single"
-        selected={new Date(2022, 4, 11, 0, 0, 0)}
-        className="absolute right-0 top-10 origin-top scale-75 rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-90"
-      />
+      <RiskAssessmentDemo className="absolute right-0 top-10 origin-top scale-75 rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-90" />
     ),
   },
-]
+];
 
-export function BentoDemo() {
+export default function BentoDemo() {
   return (
     <BentoGrid>
       {features.map((feature, idx) => (
         <BentoCard key={idx} {...feature} />
       ))}
     </BentoGrid>
-  )
-} 
+  );
+}

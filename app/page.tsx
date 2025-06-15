@@ -1,19 +1,19 @@
 "use client";
 
 import React, { Suspense } from "react";
+import { useTheme } from "next-themes";
 import { useInView } from "framer-motion";
 
-import SectionOne from "@/app/_landing/section-one";
+import BentoDemo from "@/components/bento-demo";
 import { cn } from "@/lib/utils";
 
+import FreeTrialDark from "./_landing/free-trial-dark";
 import FreeTrialSection from "./_landing/free-trial-section";
 import Hero from "./_landing/hero";
+import SiteFooter from "./_landing/site-footer";
 
 const SkeletonSection = React.lazy(() => import("./_landing/skeleton-section"));
-const FAQSection = React.lazy(() => import("./_landing/faq-section"));
-const CallToActionSection = React.lazy(() => import("./_landing/call-to-action"));
 const Testimonials = React.lazy(() => import("./_landing/testimonials"));
-const SectionTwo = React.lazy(() => import("./_landing/section-two"));
 
 function LazySection({
   component: Component,
@@ -51,21 +51,38 @@ function LazySection({
 }
 
 export default function IndexPage() {
+  const { resolvedTheme } = useTheme();
+  const color = resolvedTheme === "dark" ? "#ffffff12" : "#444cf710";
+
   return (
     <div className="relative overflow-x-hidden overflow-y-visible bg-transparent">
       <Hero />
-      <FreeTrialSection />
-
-      <SectionOne />
-
-      <LazySection component={SectionTwo} className="container mx-auto min-h-96" />
-
       <LazySection component={SkeletonSection} />
+      <div
+        className="relative w-full bg-white px-4 py-12"
+        style={{
+          backgroundImage: `radial-gradient(${color} 1px, transparent 1px)`,
+          backgroundSize: "calc(10px) calc(10px)",
+        }}
+      >
+        <div className="mx-auto w-[80vw]">
+          <div className="group relative z-10 mb-12 inline-block w-full text-center">
+            <h1 className="select-none px-0 text-center font-gilroy text-5xl font-semibold text-stone-800 transition-opacity delay-1000 dark:text-gray-100 md:px-0 md:text-6xl">
+              Explore Our Features
+            </h1>
+            <p className="relative mx-auto mt-6 max-w-2xl text-center font-sans text-lg font-medium text-muted-foreground">
+              Discover the powerful tools and capabilities that make our platform stand out. From
+              seamless integrations to advanced analytics, see how we can transform your workflow.
+            </p>
+          </div>
+          <BentoDemo />
+        </div>
+      </div>
+      <FreeTrialSection />
+      <FreeTrialDark />
+
       <LazySection component={Testimonials} className="container mx-auto min-h-96" />
-
-      <LazySection component={FAQSection} className="container mx-auto min-h-96" />
-
-      <LazySection component={CallToActionSection} className="container mx-auto min-h-96" />
+      <SiteFooter />
     </div>
   );
 }

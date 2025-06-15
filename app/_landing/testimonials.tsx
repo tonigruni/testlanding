@@ -59,7 +59,7 @@ function Testimonial({
       ref={divRef}
       key={`${isInView}-${author}`}
       className={cn(
-        "flex h-fit w-fit max-w-sm flex-shrink-0 transform gap-2 rounded-xl border-2 border-border bg-background p-3 text-sm transition-all duration-1000 ease-in-out animate-in",
+        "flex h-fit w-fit max-w-sm flex-shrink-0 transform gap-2 rounded-xl border-2 border-border bg-white p-3 text-sm transition-all duration-1000 ease-in-out animate-in",
         className,
       )}
     >
@@ -78,13 +78,13 @@ export default function Testimonials() {
 
   return (
     <div
-      className="relative -mt-4 flex flex-col gap-2 overflow-hidden px-4 py-16"
+      className="relative flex flex-col gap-2 overflow-hidden px-4 py-16"
       style={{
         backgroundImage: `linear-gradient(${lineColor} 1px, transparent 1px), linear-gradient(to right, ${lineColor} 1px, transparent 1px)`,
         backgroundSize: "80px 30px",
       }}
     >
-      <div className="absolute inset-0 left-1/2 z-0 h-[200%] w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-b from-background to-transparent mix-blend-screen blur-3xl dark:mix-blend-darken" />
+      <div className="absolute inset-0 left-1/2 z-0 h-[200%] w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-b from-white to-transparent mix-blend-screen blur-3xl dark:mix-blend-darken" />
 
       <h3 className="mb-6 text-center text-3xl font-bold leading-none text-foreground md:text-4xl lg:text-5xl">
         wall of love

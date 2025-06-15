@@ -3,7 +3,6 @@ import { Metadata, Viewport } from "next";
 import { CSPostHogProvider } from "@/app/providers";
 import { ThemeProvider } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -80,16 +79,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <head />
       <CSPostHogProvider>
-        <body className={cn("min-h-screen bg-background font-sans antialiased")}>
+        <body className={cn("min-h-screen bg-white font-sans antialiased")}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <div className="flex-1">
-                {children}
-              </div>
+              <div className="flex-1">{children}</div>
             </div>
           </ThemeProvider>
-          <TailwindIndicator />
         </body>
       </CSPostHogProvider>
     </html>
