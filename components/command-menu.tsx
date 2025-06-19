@@ -16,10 +16,9 @@ import {
 } from "@/components/ui/command";
 import { docsConfig } from "@/config/docs";
 import { cn } from "@/lib/utils";
-import { DialogProps } from "@radix-ui/react-alert-dialog";
 import { CircleIcon, FileIcon, LaptopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-export function CommandMenu({ ...props }: DialogProps) {
+export function CommandMenu({ ...props }: React.ComponentProps<typeof CommandDialog>) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const { setTheme } = useTheme();

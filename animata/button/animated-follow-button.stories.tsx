@@ -21,17 +21,26 @@ export const Primary: Story = {
     initialText: "Follow",
     changeText: "Following!",
     className: "h-16 bg-green-100 text-green-700 flex rounded-full items-center justify-center",
-    changeTextClassName: "h-16 bg-green-700 text-green-100 rounded-full text-white flex items-center justify-center",
+    changeTextClassName:
+      "h-16 bg-green-700 text-green-100 rounded-full text-white flex items-center justify-center",
   },
   render: (args) => (
     <div className="flex h-40 items-center justify-center">
-      <AnimatedFollowButton {...args} />
+      <AnimatedFollowButton
+        initialText={args.initialText || "Follow"}
+        changeText={args.changeText || "Following!"}
+        className={args.className}
+        changeTextClassName={args.changeTextClassName}
+      />
     </div>
   ),
 };
 
 export const DifferentAnimations: Story = {
-  args: {},
+  args: {
+    initialText: "Click Me",
+    changeText: "Changed!",
+  },
   render: () => {
     const buttons = [
       {
@@ -55,11 +64,11 @@ export const DifferentAnimations: Story = {
     ];
 
     return (
-      <div className="grid grid-cols-3 gap-6 h-60 w-full items-center justify-center">
+      <div className="grid h-60 w-full grid-cols-3 items-center justify-center gap-6">
         {buttons.map(({ initialText, changeText, animationType, color }, idx) => (
           <AnimatedFollowButton
             key={idx}
-            className={`h-16 flex items-center justify-center rounded-xl bg-${color}-100 text-${color}-600`}
+            className={`flex h-16 items-center justify-center rounded-xl bg-${color}-100 text-${color}-600`}
             changeTextClassName={`h-16 bg-${color}-600 text-${color}-100 rounded-xl text-white flex items-center justify-center`}
             initialText={<span className="inline-flex items-center">{initialText}</span>}
             changeText={<span className="inline-flex items-center">{changeText}</span>}

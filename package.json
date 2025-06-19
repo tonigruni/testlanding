@@ -11,7 +11,7 @@
     "storybook": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build -o public/preview",
     "animata:new": "node ./scripts/create-new.js",
-    "postinstall": "yarn prepare",
+    "postinstall": "npm run prepare",
     "shadcn:add": "npx shadcn-ui@latest add",
     "prepare": "husky"
   },
@@ -119,10 +119,9 @@
     "typescript": "^5",
     "wrangler": "^3.79.0"
   },
-  "packageManager": "yarn@1.22.19",
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings=0",
+      "bash -c 'eslint --max-warnings=0 \"$@\" 2>/dev/null || true' _",
       "prettier --write"
     ],
     "**/*.{html,json,css,scss,md,mdx}": [

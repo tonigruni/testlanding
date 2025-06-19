@@ -1,5 +1,6 @@
 "use client";
-import * as React from "react";
+
+import React from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-export function SiteHeader() {
+export function SiteHeader(): React.JSX.Element {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
